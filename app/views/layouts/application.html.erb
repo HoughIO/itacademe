@@ -46,12 +46,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Bryan Station IT Academy</a>
+          <a class="brand" href="home">Bryan Station IT Academy</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "About", "/pages/about"  %></li>
-              <li><%= link_to "News", "/path2"  %></li>
-              <li><%= link_to "Help", "/path3" %></li>
+              <li><%= link_to "About", "/about"  %></li>
+              <li><%= link_to "News", "/news"  %></li>
+              <li><%= link_to "Help", "/help" %></li>
               <li><%= link_to "Community", "/path4" %></li>
               <li><%= link_to "Resources", "/path5" %></li>
               <li><%= link_to "Students", "/path6" %></li>
@@ -79,12 +79,18 @@
           </div>
           <div class="span3">
             <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
+              <% if current_user %>
+                <h3 align="center">Welcome IT Academy Member!</h3>
+              <% else %>
+                <h3 align="center">Do you want to log in?</h3>
+              <% end %>
               <ul class="nav nav-list">
                 <%= form_tag sessions_path do %>
                   <% if current_user %>
                     Logged in as <%= current_user.email %>.
-                    <%= link_to "Log Out", session_path("current"), method: "delete" %>
+                    <div align="center">
+                      <%= link_to "Log Out", session_path("current"), method: "delete" %>
+                    </div>
                   <% else %>
                     <div class="container">
                       <%= label_tag :email %>

@@ -1,28 +1,16 @@
-<h1>Sign Up</h1>
+<h1 align="center">Sign up for an account!</h1>
 
-<%= form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <h2 style="font-family:IMPACT;color:red;font-size:40px;" align='center'>Whoops! Somthing Goof'd</h2>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit "Sign Up" %></div>
+  <div class="form-verticle">
+    <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com' %>
+    <%= f.input :password, label: 'Password', input_html: { maxlength: 20 } %>
+    <%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20 } %>
+    <%= f.submit "Sign Up", class: ['btn']%></div>
 <% end %>
