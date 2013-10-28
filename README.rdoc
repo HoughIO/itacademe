@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi, This is the readme file for the IT Academy website github repository.
 
-Things you may want to cover:
+If you are Jacob Lefever or Evan martin reading this, then you probably should look on the right of this github page for the SSH key. You can clone the repo or fork it to make changes. PLEASE BE SURE NOT TO BE ON MASTER BRANCH BEFORE UPLOADING CHANGES.
 
-* Ruby version
+if you dont remember the basic commands, I will post them here. the way they will be documented are like this COMMAND (Argument) [description].
 
-* System dependencies
+ls                           [Displays files in the current dir.]
+cd           (filepath)      [Changes your current dir.]
+mkdir        (path)          [Makes a new dir.]
+git pull                     [Pulls the most recent changes to the branch]
+git branch   (name)          [Creates a new branch]
+git branch                   [displays the current branch]
+git checkout (branch)        [changes the current branch]
+bundle                       [checks gems and installs them]
+rake db:migrate              [migrates the sqlite3 databse]
+rake db:drop                 [drops all data within the sqlite3 database]
+rake routes                  [updates the routes located in routes.rb]
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
