@@ -57,6 +57,11 @@
               <li><%= link_to "Students", "/path6" %></li>
             </ul>
             <form class="navbar-form pull-right">
+              <div id="user_header">
+                <%= link_to "Sign Up", new_user_path %>
+              </div>
+            </form>
+            <form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
               <input class="span2" type="password" placeholder="Password">
               <button type="submit" class="btn">Sign in</button>
