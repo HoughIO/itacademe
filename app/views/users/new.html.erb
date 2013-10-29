@@ -9,8 +9,12 @@
   <% end %>
 
   <div class="form-verticle">
-    <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com' %>
-    <%= f.input :password, label: 'Password', input_html: { maxlength: 20 } %>
-    <%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20 } %>
+    <div class="container"><%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%><div class="alert alert-info">You CANNOT change your email login after this point.</div></div>
+    <hr>
+    <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
+    <hr>
+    <%= f.input :maycontact, :input_html => { :checked => true }, label: 'Can we contact you?'%>
+    <%= f.input :studentnumber, placeholder: 'ex. 12345678', input_html: { maxlength: 8} %>
+    <%= f.input :classnumber, placeholder: 'ex. 1234', input_html: { maxlength: 4} %>
     <%= f.submit "Sign Up", class: ['btn']%></div>
 <% end %>
