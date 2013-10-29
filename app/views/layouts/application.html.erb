@@ -38,7 +38,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top" role="navigation">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -46,40 +46,61 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Bryan Station IT Academy</a>
+          <a class="brand" href="home">Bryan Station IT Academy</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "About", "/pages/about"  %></li>
-              <li><%= link_to "News", "/path2"  %></li>
-              <li><%= link_to "Help", "/path3" %></li>
+              <li><%= link_to "About", "/about"  %></li>
+              <li><%= link_to "News", "/news"  %></li>
+              <li><%= link_to "Help", "/help" %></li>
               <li><%= link_to "Community", "/path4" %></li>
               <li><%= link_to "Resources", "/path5" %></li>
               <li><%= link_to "Students", "/path6" %></li>
+              <% if current_user %>
+                <li><p class="navbar-text pull-right">Logged in as <%= current_user.email %>.</p></li>
+              <% else %>
+                <li><%= link_to "Sign Up!", new_user_path, class: ['nav', 'pull-right', 'navbar-link'] %></li>
+              <% end %>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">×</a>
+            <%= msg %>
+        </div>
+      <% end %>
         <div class="row">
           <div class="span9">
-            <%= bootstrap_flash %>
             <%= yield %>
           </div>
           <div class="span3">
             <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
+              <% if current_user %>
+                <h3 align="center">Welcome IT Academy Member!</h3>
+              <% else %>
+                <h3 align="center">Do you want to log in?</h3>
+              <% end %>
               <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+                <%= form_tag sessions_path do %>
+                  <% if current_user %>
+                    Logged in as <%= current_user.email %>.
+                    <div align="center">
+                      <%= link_to "Log Out", session_path("current"), method: "delete" %>
+                    </div>
+                  <% else %>
+                    <div class="container">
+                      <%= label_tag :email %>
+                      <%= text_field_tag :email, params[:email] %>
+                      <%= label_tag :password %>
+                      <%= password_field_tag :password %>
+                    </div>
+                    <div class="actions"><%= submit_tag "Log In" %></div>
+                  <% end %>
+                <% end %>
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
