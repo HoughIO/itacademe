@@ -1,15 +1,17 @@
-<h1 align="center">Sign up for an account!</h1>
+<div class="page-header">
+  <h1>Sign up for an account!</h1>
+</div>
 
 <%= simple_form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2 style="font-family:IMPACT;color:red;font-size:40px;" align='center'>Error, Please correct the field below.</h2>
-      </ul>
+      <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below.
+      </div>
     </div>
   <% end %>
 
   <div class="form-verticle">
-    <div class="container"><%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%><div class="alert alert-info">You CANNOT change your email login after this point.</div></div>
+    <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%><div class="alert alert-info">You CANNOT change your email login after this point.</div>
     <hr>
     <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
     <hr>
