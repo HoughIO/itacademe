@@ -66,23 +66,21 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
           <a class="close" data-dismiss="alert">×</a>
             <%= msg %>
         </div>
       <% end %>
-        <div class="row">
+        <div class="row-fluid">
           <div class="span9">
             <%= yield %>
           </div>
           <div class="span3">
-            <div class="well sidebar-nav">
+            <div class="well sidebar">
               <% if current_user %>
                 <h3 align="center">Welcome IT Academy Member!</h3>
-              <% else %>
-                <h3 align="center">Do you want to log in?</h3>
               <% end %>
               <ul class="nav nav-list">
                 <%= form_tag sessions_path do %>
@@ -93,12 +91,29 @@
                     </div>
                   <% else %>
                     <div class="container">
-                      <%= label_tag :email %>
-                      <%= text_field_tag :email, params[:email] %>
-                      <%= label_tag :password %>
-                      <%= password_field_tag :password %>
+                      <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Please sign in</h3>
+                            </div>
+                              <div class="panel-body">
+                                <form accept-charset="UTF-8" role="form">
+                                        <fieldset>
+                                    <div class="form-group">
+                                      <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                  </div>
+                                  <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                  </div>
+                                  <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                </fieldset>
+                                  </form>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="actions"><%= submit_tag "Log In" %></div>
                   <% end %>
                 <% end %>
               </ul>
