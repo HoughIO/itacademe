@@ -11,6 +11,8 @@
   <% end %>
 
   <div class="form-verticle">
+    <%= f.input :firstname, placeholder: 'Jhon' %>
+    <%= f.input :lastname, placeholder: 'Appleseed' %>
     <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%><div class="alert alert-info">You CANNOT change your email login after this point.</div>
     <hr>
     <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
