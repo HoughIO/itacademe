@@ -28,7 +28,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #for responsive look-goodie-ness
-gem 'twitter-bootstrap-rails'
+gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
+                              github: 'anjlab/bootstrap-rails',
+                              branch: '3.0.0'
+
+gem 'font-awesome-sass-rails'
 
 #for static page rendering made easy
 gem 'high_voltage'

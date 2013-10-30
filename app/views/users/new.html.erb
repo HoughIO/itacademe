@@ -9,16 +9,39 @@
       </div>
     </div>
   <% end %>
-
-  <div class="form-verticle">
-    <%= f.input :firstname, placeholder: 'Jhon' %>
-    <%= f.input :lastname, placeholder: 'Appleseed' %>
-    <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%><div class="alert alert-info">You CANNOT change your email login after this point.</div>
-    <hr>
-    <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
-    <hr>
-    <%= f.input :maycontact, :input_html => { :checked => true }, label: 'Can we contact you?'%>
-    <%= f.input :studentnumber, placeholder: 'ex. 12345678', input_html: { maxlength: 8} %>
-    <%= f.input :classnumber, placeholder: 'ex. 1234', input_html: { maxlength: 4} %>
-    <%= f.submit "Sign Up", class: ['btn']%></div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="form-verticle">
+          <fieldset>
+            <div class="forn-group">
+              <label class="col-md-4 control-label" for="textinput">
+                First Name
+              </label>
+              <div class="col-md-4">
+                <%= f.input :firstname, id: "textinput", class: "form-control input-md", placeholder: 'John'%>
+              </div>
+            </div>
+            <%= f.input :lastname, placeholder: 'Appleseed' %>
+            <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%>
+            <hr>
+            <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
+            <hr>
+            <%= f.input :maycontact, :input_html => { :checked => true }, label: 'Can we contact you?'%>
+            <%= f.input :studentnumber, placeholder: 'ex. 12345678', input_html: { maxlength: 8} %>
+            <%= f.input :classnumber, placeholder: 'ex. 1234', input_html: { maxlength: 4} %>
+            <%= f.submit "Sign Up", class: ['btn']%>
+          </fieldset>
+        </div>
+      </div>
+      <div class="span6">
+        <!-- This is where the email alert info is. -->
+        <div class="alert alert-info" align="center">
+          Warning!
+          <br>
+          You CANNOT change your email, First Name or Last Name after this point.
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
