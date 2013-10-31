@@ -1,67 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="page-header">
-        <h1>Sign up for an account!</h1>
-      </div>
-      <%= simple_form_for @user do |f| %>
-        <% if @user.errors.any? %>
-          <div class="error_messages">
-            <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below.
-            </div>
-          </div>
-        <% end %>
-        <div class="form">
-          <div class="form-group">
-            <%= f.input :firstname,
-                        class: "form-control",
-                        placeholder: 'First Name',
-                        type: "text",
-                        label: false %>
-
-            <%= f.input :lastname,
-                        placeholder: 'Last Name',
-                        name: "appendedtext",
-                        class: "form-control",
-                        type: "text",
-                        label: false %>
-          </div>
-
-
-            <%= f.input :email,
-                        class: "form-control",
-                        placeholder: "Email",
-                        label: false %>
-
-            <%= f.input :password,
-                        label: 'Password',
-                        placeholder: "Password",
-                        input_html: { maxlength: 20, minlength: 6 },
-                        label: false %>
-
-            <%= f.input :password_confirmation,
-                        label: 'Password Confirmation',
-                        input_html: { maxlength: 20, minlength: 6 },
-                        label: false%>
-
-            <%= f.input :studentnumber,
-                        placeholder: 'Student Number',
-                        input_html: { maxlength: 8},
-                        label: false %>
-
-            <%= f.input :maycontact,
-                        :input_html => { :checked => true },
-                        label: 'Can we contact you?' %>
-
-            <%= f.input :classnumber,
-                        placeholder: 'Class Number',
-                        input_html: { maxlength: 4},
-                        label: false %>
-
-            <%= f.submit "Sign Up", class: ['btn btn-primary btn-sm btn-block']%>
-          </div>
+<div>
+  <h1>Sign up for an account!</h1>
+  <hr>
+  <%= simple_form_for(@user, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below.
         </div>
-      <% end %>
-    </div>
-  </div>
+      </div>
+    <% end %>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+
+        <%= f.input :firstname,
+                    class: "form-control",
+                    placeholder: 'First Name',
+                    type: "text",
+                    label: false %>
+
+        <%= f.input :lastname,
+                    placeholder: 'Last Name',
+                    name: "appendedtext",
+                    class: "form-control",
+                    type: "text",
+                    label: false %>
+        <br>
+
+        <%= f.input :email,
+                    class: "form-control",
+                    placeholder: "Email",
+                    label: false %>
+
+        <%= f.input :password,
+                    class: "form-control",
+                    label: 'Password',
+                    placeholder: "Password",
+                    input_html: { maxlength: 20, minlength: 6 },
+                    label: false %>
+
+        <%= f.input :password_confirmation,
+                    class: "form-control",
+                    label: 'Password Confirmation',
+                    placeholder: "Password Confirmation",
+                    input_html: { maxlength: 20, minlength: 6 },
+                    label: false %>
+        <br>
+        <%= f.input :studentnumber,
+                    class: "form-control",
+                    placeholder: 'Student Number',
+                    input_html: { maxlength: 8},
+                    label: false %>
+
+        <%= f.input :classnumber,
+                    placeholder: 'Class Number',
+                    input_html: { maxlength: 4},
+                    label: false %>
+        <label>
+          <input type="checkbox" id="maycontact"> Allow us to contact you
+        </label>
+        <hr>
+
+
+        <br>
+        <%= f.submit "Sign Up", class: ['btn btn-primary btn-sm btn-block']%>
+      </div>
+    </form>
+  <% end %>
 </div>
+

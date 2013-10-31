@@ -5,14 +5,11 @@ $navbar-starting-color: #46a456;
 $navbarBackgroundHighlight: #7a43b6;
 
 
-$navbarBackgroundHighlight: #7a43b6;
 $navbar-default-link-color: #ffffff;
 $navbar-default-link-hover-color: #FFBF00;
 $navbar-default-link-active-color: #E6E6E6;
 $navbar-default-brand-color: #08088A;
 $navbar-default-brand-hover-color: #FFBF00;
-body { padding-top: 60px; }
-
 @import "twitter/bootstrap";
 @import 'font-awesome';
 
