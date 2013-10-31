@@ -91,25 +91,18 @@
                     </div>
                   <% else %>
                     <!-- ############# -->
-                    <h3>log in, bitch</h3>
-                    <hr>
+                    <%= image_tag("login.png", :alt => "This means login.", :class => "inline img-responsive", style: "100%") %>
                     <form role="form">
                       <div class="control-group">
                         <div class="form-group">
                             <%= email_field_tag :email, params[:email],
                                 name: "email",
                                 class: "form-control",
-                                placeholder: "example@email.com" %>
-                          <div class="form-control">
-                            <%= password_field_tag :password %>
-                          </div>
-                            <span class="help-block">Enter your username and password, please.</span>
-                        </div>
-                      </div>
-                      <!-- Button -->
-                      <div class="control-group">
-                        <div class="form-group">
-                          <%= submit_tag "Log In", name: "singlebutton", class: "btn btn-primary" %>
+                                placeholder: "Email" %>
+                            <%= password_field_tag :password, params[:password], placeholder: 'Password', class: 'input-small form-control' %>
+                            <span class="help-block">Please enter your email address and password.</span>
+
+                            <%= submit_tag "Log In", name: "singlebutton", class: "btn btn-primary btn-lg btn-block" %>
                         </div>
                       </div>
                     </form>
