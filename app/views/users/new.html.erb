@@ -9,37 +9,48 @@
       </div>
     </div>
   <% end %>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span6">
-        <div class="form-verticle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form">
           <fieldset>
-            <div class="forn-group">
-              <label class="col-md-4 control-label" for="textinput">
-                First Name
-              </label>
-              <div class="col-md-4">
-                <%= f.input :firstname, id: "textinput", class: "form-control input-md", placeholder: 'John'%>
+            <div class="form-inline">
+              <!-- Prepended text-->
+              <div class="form-group">
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <%= f.input :email, :wrapper => :append do %>
+                      <span class="input-group-addon">First Name</span>
+                      <%= f.input :firstname, id: "prependedtext", name: "prependedtext", class: ["form-control" "inline"], placeholder: 'John', type: "text", label: false %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
-            <%= f.input :lastname, placeholder: 'Appleseed' %>
-            <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%>
-            <hr>
-            <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %><%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
+
+              <!-- Appended Input-->
+              <div class="form-group">
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <%= f.input :lastname, placeholder: 'Appleseed', name: "appendedtext", class: ["form-control" "inline"], type: "text", label: false%>
+                    <%= content_tag :span, "?", :class => "input-group-addon" %>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <%= f.input :email, label: 'Email Address', placeholder: 'example@email.com'%>
+              <hr>
+              <%= f.input :password, label: 'Password', input_html: { maxlength: 20, minlength: 6 } %>
+              <%= f.input :password_confirmation, label: 'Password Confirmation', input_html: { maxlength: 20 } , input_html: { maxlength: 20, minlength: 6 } %>
+              <br>
+              You cannot change these inputs after creating your account.
             <hr>
             <%= f.input :maycontact, :input_html => { :checked => true }, label: 'Can we contact you?'%>
             <%= f.input :studentnumber, placeholder: 'ex. 12345678', input_html: { maxlength: 8} %>
             <%= f.input :classnumber, placeholder: 'ex. 1234', input_html: { maxlength: 4} %>
             <%= f.submit "Sign Up", class: ['btn']%>
+            </div>
           </fieldset>
-        </div>
-      </div>
-      <div class="span6">
-        <!-- This is where the email alert info is. -->
-        <div class="alert alert-info" align="center">
-          Warning!
-          <br>
-          You CANNOT change your email, First Name or Last Name after this point.
         </div>
       </div>
     </div>
