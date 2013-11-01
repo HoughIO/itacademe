@@ -141,7 +141,9 @@
                 <%= form_tag sessions_path do %>
                   <% if current_user %>
                    <div align="center">
-                    Logged in as <%= current_user.email %>.
+                    <%= image_tag("logdin.png", :alt => "Get it?", :class => "inline img-responsive", style: "100%", align: "center") %>
+
+                    <p style="color: ">Logged in as <%= current_user.email %>.
                       <br>
                       <%= link_to "Log Out", session_path("current"), method: "delete" %>
                     </div>
