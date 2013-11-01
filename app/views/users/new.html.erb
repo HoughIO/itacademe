@@ -1,14 +1,13 @@
 <div>
   <h1>Sign up for an account!</h1>
   <hr>
-  <%= simple_form_for(@user, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+  <%= simple_form_for(@user, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control form-inline' } }) do |f| %>
     <% if @user.errors.any? %>
       <div class="error_messages">
         <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below.
         </div>
       </div>
     <% end %>
-    <form class="form-inline" role="form">
       <div class="form-group">
 
         <%= f.input :firstname,
@@ -51,19 +50,18 @@
                     label: false %>
 
         <%= f.input :classnumber,
+                    class: "form-control",
                     placeholder: 'Class Number',
                     input_html: { maxlength: 4},
                     label: false %>
-        <label>
-          <input type="checkbox" id="maycontact"> Allow us to contact you
-        </label>
-        <hr>
-
+        <div class="well" align="center">
+          <%= f.check_box :maycontact %>  <strong>Can contact you?</strong>
+        </div>
+                  <hr><hr><hr>
 
         <br>
         <%= f.submit "Sign Up", class: ['btn btn-primary btn-sm btn-block']%>
       </div>
-    </form>
   <% end %>
 </div>
 
