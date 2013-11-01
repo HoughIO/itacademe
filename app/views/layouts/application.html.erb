@@ -100,7 +100,7 @@
         <% if current_user %>
           <li>
             <button type="button" class="navbar-text btn btn-success" disabled="disabled">
-              Logged in as <%= current_user.email %>
+              Logged in as <%= current_user.firstname %> <%= current_user.lastname %>
             </button>
           </li>
         <% else %>
@@ -143,7 +143,7 @@
                    <div align="center">
                     <%= image_tag("logdin.png", :alt => "Get it?", :class => "inline img-responsive", style: "100%", align: "center") %>
 
-                    <p style="color: ">Logged in as <%= current_user.email %>.
+                    <p style="color: ">Logged in as <%= current_user.firstname %> <%= current_user.lastname %>.
                       <br>
                       <%= link_to "Log Out", session_path("current"), method: "delete" %>
                     </div>
