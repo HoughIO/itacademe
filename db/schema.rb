@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029143551) do
+ActiveRecord::Schema.define(version: 20131030152932) do
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20131029143551) do
     t.string   "studentnumber"
     t.string   "classnumber"
     t.boolean  "maycontact"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
 end
