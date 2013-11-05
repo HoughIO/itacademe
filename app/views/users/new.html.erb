@@ -4,11 +4,16 @@
   <%= simple_form_for(@user, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control form-inline' } }) do |f| %>
     <% if @user.errors.any? %>
       <div class="error_messages">
-        <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below.
+        <div class="alert alert-danger " align="center">Something went wrong! Please correct the fields below!
         </div>
       </div>
     <% end %>
       <div class="form-group">
+
+        <span class="label label-warning">You cannot change any of the information below after clicking the submit button! Be sure it is all correct!
+        </span>
+        <br>
+        <br>
 
         <%= f.input :firstname,
                     class: "form-control",
@@ -36,6 +41,11 @@
                     input_html: { maxlength: 20, minlength: 6 },
                     label: false %>
 
+        <span class="label label-primary">Password but be between 6 and 20 characters in length!
+        </span>
+        <br>
+        <br>
+
         <%= f.input :password_confirmation,
                     class: "form-control",
                     label: 'Password Confirmation',
@@ -59,7 +69,7 @@
         </div>
         <hr>
         <br>
-        <%= f.submit "Sign Up", class: ['btn btn-primary btn-sm btn-block']%>
+        <%= f.submit "Submit", class: ['btn btn-primary btn-sm btn-block']%>
         <br>
         <hr>
       </div>
