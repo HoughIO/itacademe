@@ -96,26 +96,41 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-collapse navbar-right">
         <% if current_user %>
           <button type="button" class="navbar-text btn btn-success" disabled="disabled">
             <%= current_user.firstname %> <%= current_user.lastname %>
           </button><p />
         <% else %>
-            <li><a href="/users/new">Sign Up!</a></li>
+            <button class="btn btn-primary btn-defalut navbar-btn" data-toggle="modal" data-target="#myModal">
+              Sign Up!
+            </button>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
   <body>
-
-
+<!-- -------------------------------------------------------------------------->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up for a new account!</h4>
+      </div>
+      <div class="modal-body">
+        <%= render template: "users/new_navbar" %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- -------------------------------------------------------------------------->
     <div class="container">
 
       <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-          <a class="close" data-dismiss="alert">×</a>
+        <div class="alert alert-<%= name == :notice ? "success" : "danger" %>">
+          <a class="close" data-dismiss="alert">x</a>
             <%= msg %>
         </div>
       <% end %>
