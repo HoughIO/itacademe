@@ -1,4 +1,6 @@
 Itacademe::Application.routes.draw do
+  resources :articles
+
   resources :sessions
   resources :users
 
