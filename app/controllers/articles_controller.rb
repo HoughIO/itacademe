@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @article }
       else
         format.html { render action: 'new' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity, alert: "please fix this field" }
       end
     end
   end
@@ -46,8 +46,8 @@ class ArticlesController < ApplicationController
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.html { render action: 'edit', alert: "fix this field" }
+        format.json { render json: @article.errors, status: :unprocessable_entity}
       end
     end
   end
