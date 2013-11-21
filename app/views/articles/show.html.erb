@@ -3,9 +3,9 @@
   <h1><%= @article.title %></h1>
   <hr>
 </div>
-<p>
-  <%= @article.body %>
-</p>
+<div class="article-body">
+  <%= sanitize_html @article.body %>
+</div>
 <hr>
 <div align="center">
   <% if current_user.nil? or current_user.classnumber != "1859" %>

@@ -10,16 +10,11 @@
                 placeholder: "Title"%>
   </div>
   <div class="form-inputs" align="center" text-align="center">
-    <%= f.input :body,
-                class: "form-control input-large",
-                type: "textarea",
-                align: "center",
-                :input_html => { :cols => 50, :rows => 15},
-                spellcheck: "true",
-                label: false,
-                placeholder: "This is where you type the body of the article."%>
+    <%= f.input :body, as: :bootsy, :input_html => { :cols => 50, :rows => 15}, label: false %>
   </div>
-  <hr>
+    <h4>Choose a Publish date for the news article.</h4>
+    <hr>
+    <%= f.input :date_published, discard_year: true, label: false%>
   <div class="form-actions" align="center">
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>

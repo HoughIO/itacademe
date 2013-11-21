@@ -73,3 +73,15 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# For formatting article text
+gem 'markdown'
+
+# For cleaning up HTML from Markdown in article bodies
+gem 'sanitize'
+
+#WYSIWYG for Markdown.
+gem 'bootsy'
+
+#This fixes the refresh gitch on bootsy.
+gem 'jquery-turbolinks'

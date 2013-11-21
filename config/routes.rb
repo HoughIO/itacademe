@@ -1,4 +1,5 @@
 Itacademe::Application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :articles
 
   resources :sessions
