@@ -1,0 +1,17 @@
+
+<div align="center">
+  <h1><%= @article.title %></h1>
+  <hr>
+</div>
+<div class="article-body">
+  <%= sanitize_html @article.body %>
+</div>
+<hr>
+<div align="center">
+  <% if current_user.nil? or current_user.classnumber != "1859" %>
+      <%= link_to 'Back', articles_path, class: "btn btn-info" %>
+  <% else %>
+      <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-info"%> |
+      <%= link_to 'Back', articles_path, class: "btn btn-info" %>
+  <% end %>
+</div>

@@ -12,6 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootsy
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+// override jquery validate plugin defaults
+
+$.validator.setDefaults({
+    highlight: function(element) {
+        $(element).closest('.form-control').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-control').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+        if(element.parent('.input-control').length) {
+            error.insertAfter(element.parent());
+        } else {
+            error.insertAfter(element);
+        }
+    }
+});

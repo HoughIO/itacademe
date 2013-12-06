@@ -1,0 +1,21 @@
+<%= simple_form_for(@article, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+  <%= f.error_notification class: "alert alert-danger" %>
+  <div class="form-inputs" align="center" text-align="center">
+    <%= f.input :title,
+                class: "form-control input-large",
+                type: "text",
+                align: "center",
+                spellcheck: "true",
+                label: false,
+                placeholder: "Title"%>
+  </div>
+  <div class="form-inputs" align="center" text-align="center">
+    <%= f.input :body, as: :bootsy, :input_html => { :cols => 50, :rows => 15}, label: false %>
+  </div>
+    <h4>Choose a Publish date for the news article.</h4>
+    <hr>
+    <%= f.input :date_published, discard_year: true, label: false%>
+  <div class="form-actions" align="center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
